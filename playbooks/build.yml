@@ -1,0 +1,22 @@
+- name: "Building docker image"
+  hosts: localhost
+  vars:
+    docker_image: sample-app
+    tag: latest
+  connection: local
+  tasks:
+  
+    - name: Download Tomcat Sample Application
+      get_url:
+        url: https://tomcat.apache.org/tomcat-9.0-doc/appdev/sample/sample.war
+        dest: ../src/sample.war
+        mode: '0440'
+
+    - name: Build container image
+      docker_image:
+        name: "{{ docker_image }}"
+        tag: "{{ tag }}"
+        source: build
+        build:
+          path: ../
+        state: present

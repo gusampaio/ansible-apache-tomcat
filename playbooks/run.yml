@@ -1,0 +1,26 @@
+- name: "Running and testing Sample App"
+  hosts: localhost
+  vars:
+    docker_image: sample-app
+    tag: latest
+    container_port: 8080
+    host_port: 8080
+  connection: local
+  tasks:
+
+  - name: Staring Sample App container 
+    docker_container:
+      name: sample-app
+      image: "{{ docker_image }}"
+      state: started
+      published_ports: "{{ host_port }}:{{ container_port }}"
+      restart: yes
+
+  - name: Wait for port 8080 to become open on the host
+    wait_for:
+      port: "{{ host_port }}"
+      delay: 1
+      timeout: 60
+
+  - name: Test docker container
+    shell: pytest ../tests/isRunning.py

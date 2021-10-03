@@ -1,0 +1,16 @@
+- name: "Stopping container and cleaning up"
+  hosts: localhost
+  vars:
+    docker_image: sample-app
+    tag: latest
+  connection: local
+  tasks:
+
+  - name: Stoppping Sample App container 
+    docker_container:
+      name: sample-app
+      image: "{{ docker_image }}"
+      state: absent
+      
+  - name: "Cleaning src folder"
+    shell: rm -f ../src/sample.war
