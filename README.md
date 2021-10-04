@@ -65,19 +65,18 @@ After building and creating the container image, the [run.yml](playbooks/run.yml
         restart: yes
 ```
 
-#### Test
+#### Tests 
 
-Wait one second to check if the port 8080 is open after running the container.
+Steps included in the [run.yml](playbooks/run.yml). After running the container, check if the port 8080 is available:
 
 ```yaml
 - name: Wait for port 8080 to become open on the host
     wait_for:
         port: "{{ host_port }}"
-        delay: 1
         timeout: 60
 ```
 
-Test with `pytest` if page `http://localhost:8080/sample` return code `200`.
+If port is available, test with `pytest` if page `http://localhost:8080/sample` return code `200`.
 
 ```yaml
 - name: Test docker container
