@@ -1,6 +1,6 @@
 # Sample Apache Tomcat Application 
 
-This sample application is running with a `tomcat:9-alpine` docker image and serving on the endpoint `http://locahost:8080/sample`.
+This sample application is running with a `tomcat:9-alpine` docker image and serving on the endpoint `http://locahost:8080/sample` by running the `$ make run` command.
 
 ## How it works
 
@@ -9,7 +9,7 @@ With the help of Ansible, this project intend to [download](#download), [build](
 
 ## Usage
 ```
-# Download Sample App and Build docker image:
+# Download Sample App and Build docker image
 $ make build
 
 # Build, Test and Run container containing the sampel App 
@@ -110,3 +110,10 @@ Playbook [stop.yml](#playbooks/stop.yml) to delete downloaded war file and stop 
 - name: "Cleaning src folder"
     shell: rm -f ../src/sample.war
 ```
+
+## Requirements
+
+- Docker
+- Python3 and Pytest
+- Ansible (supporting Python 3 only) 
+- Port 8080 is available
