@@ -1,10 +1,11 @@
 # Sample Apache Tomcat Application 
 
-This sample application is running with a `tomcat:9-alpine` docker image and serving on the endpoint `http://locahost:8080/sample` by running the `$ make run` command.
+This project runs a containerized Apache Tomcat Sample application with the `tomcat:9-alpine` docker image, serving on the endpoint `http://locahost:8080/sample`.
+
 
 ## How it works
 
-With the help of Ansible, this project intend to [download](#download), [build](#build), [test](#test), 
+With Ansible's help, this project intend to [download](#download), [build](#build), [test](#test), 
 [run](#run) and [cleanup](#cleanup) a docker Tomcat Sample Application.
 
 ## Usage
@@ -52,7 +53,7 @@ Once the war file  is downloaded, a task to build the docker container is execut
 
 #### Run
 
-After building and create the container image, the [run.yml](playbooks/run.yml) is invoked when running `$ make run`. At this phase the container created in the previous phase will be started, if not already running, on port `8080`:
+After building and creating the container image, the [run.yml](playbooks/run.yml) is invoked when running `$ make run`. At this phase the container image created in the previous step will be started, if not already running, on port `8080`:
 
 ```yaml
 - name: Staring Sample App container 
