@@ -114,6 +114,7 @@ Playbook [stop.yml](#playbooks/stop.yml) to delete downloaded war file and stop 
 ## Requirements
 
 - Docker
-- Python3 and Pytest
+- Python3 
+- Pytest
 - Ansible (supporting Python 3 only) 
 - Port 8080 is available
