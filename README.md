@@ -8,23 +8,19 @@ With the help of Ansible, this project intend to [download](#download), [build](
 [run](#run) and [cleanup](#cleanup) a docker Tomcat Sample Application.
 
 ## Usage
+```
+# Download Sample App and Build docker image:
+$ make build
 
-### Download Sample App and Build docker image:
+# Build, Test and Run container containing the sampel App 
+$ make run
 
-`$ make build` 
+# Test if app is running under the specified port and path
+$ make test
 
-### Build, Test and Run container containing the sampel App 
-
-`$ make run`
-
-### Test if app is running under the specified port and path
-
-`$ make test`
-
-### Cleanup download war file and stopping docker container
-
-`$ make cleanup`
-
+# Cleanup download war file and stopping docker container
+$ make cleanup
+```
 ### Steps
 
 #### Download
@@ -87,7 +83,7 @@ Test with `pytest` if page `http://localhost:8080/sample` return code `200`.
     shell: pytest ../tests/isRunning.py
 ```
 
-`test/isRunning.py`:
+[tests/isRunning.py](tests/isRunning.py):
 ```python
 def test_page_response():
     test_url = "http://localhost:8080/sample"
