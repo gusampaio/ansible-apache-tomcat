@@ -12,13 +12,13 @@ With the help of Ansible, this project intend to [download](#download), [build](
 # Download Sample App and Build docker image
 $ make build
 
-# Build, Test and Run container containing the sampel App 
+# Build, Test and Run container containing the sample App 
 $ make run
 
 # Test if app is running under the specified port and path
 $ make test
 
-# Cleanup download war file and stopping docker container
+# Cleanup downloaded war file and stopping docker container
 $ make cleanup
 ```
 ### Steps
